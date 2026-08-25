@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotografía y Música | Momentos que se sienten</title>
+  <meta name="description" content="Landing page personal sobre fotografía de paisajes naturales y la música de Milo J, Wos y Billie Eilish." />
+  <meta property="og:title" content="Fotografía y Música | Momentos que se sienten" />
+  <meta property="og:description" content="Paisajes, recuerdos y canciones: un espacio sobre fotografía natural y tres artistas que me marcaron." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Karla:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #d6eadf;
+      --text: #111;
+      --card: #f8fbf9;
+      --muted: #4b5c50;
+      --primary: #3b6e55;
+      --accent: #c2e0d0;
+      --border: #b9d6c4;
+      --shadow: 0 18px 40px -24px rgba(45, 70, 55, 0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      font-family: "Karla", ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(214, 234, 223, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      transition: background 0.2s;
+    }
+
+    .nav-links a:hover { background: var(--accent); }
+
+    main {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.05;
+      margin-top: 0.75rem;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin-top: 1.25rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s, background 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover { opacity: 0.9; }
+
+    .btn-secondary {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-secondary:hover { background: var(--accent); }
+
+    .figure-card {
+      margin-top: 2.5rem;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .figure-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .figure-card figcaption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+    }
+
+    .section-text {
+      max-width: 768px;
+      margin-top: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .photo-grid {
+      margin-top: 2.5rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .photo-grid .figure-card img { height: 280px; }
+
+    .poll {
+      max-width: 640px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .poll h2 {
+      font-size: 1.75rem;
+    }
+
+    .poll-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .poll-options {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .poll-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .poll-btn:hover { background: var(--accent); }
+
+    .poll-btn.active {
+      background: var(--accent);
+      border-color: var(--primary);
+    }
+
+    .poll-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+
+    .poll-count {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .poll-bar {
+      margin-top: 0.5rem;
+      height: 0.5rem;
+      width: 100%;
+      background: var(--bg);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .poll-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .poll-status {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .music-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .music-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .music-card p {
+      margin-top: 0.75rem;
+      color: var(--muted);
+    }
+
+    .artist {
+      margin-top: 2.5rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .artist img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .artist-text p {
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    .artist-text em {
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 640px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .figure-card img { height: 460px; }
+    }
+
+    @media (min-width: 768px) {
+      .artist { grid-template-columns: 1fr 1.2fr; align-items: start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio" class="logo">Paisajes &amp; Canciones</a>
+      <ul class="nav-links">
+        <li><a href="#votacion">Votación</a></li>
+        <li><a href="#fotografia">Fotografía</a></li>
+        <li><a href="#musica">Música</a></li>
+        <li><a href="#artistas">Artistas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <p class="eyebrow">Página personal</p>
+      <h1>
+        Fotografía y música:<br />
+        momentos que se sienten
+      </h1>
+      <p>
+        Un espacio para guardar paisajes que me emocionan y canciones que me acompañan.
+        Naturaleza, recuerdos y tres artistas que ocupan un lugar especial.
+      </p>
+      <div class="buttons">
+        <a href="#fotografia" class="btn btn-primary">Ver fotografías</a>
+        <a href="#musica" class="btn btn-secondary">Ver música</a>
+      </div>
+
+      <figure class="figure-card">
+        <img src="foto1.jpg" alt="Cataratas con un arcoíris cruzando el río entre rocas y vegetación" />
+        <figcaption>foto1.jpg — la naturaleza mostrando su mejor luz.</figcaption>
+      </figure>
+    </section>
+
+    <section id="votacion">
+      <div class="poll">
+        <h2>¿Qué te gusta?</h2>
+        <p class="poll-sub">Elegí una opción y mirá los resultados en vivo.</p>
+        <ul class="poll-options" id="poll-options"></ul>
+        <p class="poll-status" id="poll-status" role="status">Todavía no votaste.</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="fotografia">
+      <h2>Fotografía</h2>
+      <p class="section-text">
+        La fotografía para mí es una forma de guardar momentos que quizás nunca vuelvan a
+        repetirse. Me encanta especialmente fotografiar paisajes: montañas, ríos, bosques,
+        atardeceres y esos pequeños rincones que muchas veces pasan desapercibidos. Cada
+        paisaje tiene una historia y una belleza propia, y a través de una fotografía puedo
+        conservar un instante y volver a él cada vez que lo miro.
+      </p>
+
+      <div class="photo-grid">
+        <figure class="figure-card">
+          <img src="foto2.jpg" alt="El Obelisco de Buenos Aires iluminado de noche con gente cruzando la avenida" loading="lazy" />
+          <figcaption>foto2.jpg — la ciudad también tiene sus paisajes.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="foto3.jpg" alt="Avenida mojada al atardecer con el Obelisco entre nubes azules y reflejos de luces" loading="lazy" />
+          <figcaption>foto3.jpg — después de la lluvia, todo se refleja.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="musica">
+      <h2>🎶 Un amor por la música</h2>
+      <p class="section-text">
+        La música es una parte muy importante de mí, sin importar el género o el estilo. Cada
+        canción puede transmitir una emoción diferente, acompañarme en un momento especial o
+        incluso hacerme recordar personas y momentos que marcaron mi vida. Entre tantos
+        artistas, hay tres que ocupan un lugar especial: Milo J, Wos y Billie Eilish, porque
+        cada uno, a su manera, logra convertir sentimientos y experiencias en música con la que
+        puedo sentirme identificada. Para mí, escuchar música no es simplemente oír una
+        canción: es sentir, recordar y conectar.
+      </p>
+
+      <div class="music-card" style="margin-top: 2rem;">
+        <h3>Canción destacada</h3>
+        <p>
+          Cada canción que aparece acá representa una emoción particular. La música elegida
+          acompaña los sentimientos que transmiten las fotografías y los artistas de esta
+          página.
+        </p>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="artistas">
+      <h2>Tres artistas, tres mundos</h2>
+
+      <article class="artist">
+        <figure>
+          <img src="milo.jpg" alt="Milo J cantando inclinado sobre el micrófono con luces naranjas de fondo" loading="lazy" />
+        </figure>
+        <div class="artist-text">
+          <h3>Milo J</h3>
+          <p>
+            Milo J es un artista argentino que, a través de sus canciones, logra transmitir
+            emociones profundas y conectar con experiencias personales. Su música no solo me
+            gusta, sino que también tiene un significado especial para mí.
+          </p>
+          <p>
+            Para mí, Milo J representa recuerdos, emociones y personas que ya no están. Sus
+            canciones han logrado hacerme llorar y sentir cosas que a veces son difíciles de
+            expresar con palabras. Especialmente <em>Luciérnagas</em>, una canción que cada vez
+            que escucho me transporta a los momentos que compartí con mi abuelo, quien ya no
+            está acá. Es como si por unos minutos pudiera volver al pasado y sentir nuevamente su
+            presencia, recordar su voz, sus momentos y todo lo que significó para mí. Por eso,
+            aunque escucharla puede doler, también es una forma de mantener vivos esos recuerdos
+            y sentir que una pequeña parte de él sigue conmigo.
+          </p>
+          <div class="music-card">
+            <h3>Milo J · Luciérnagas</h3>
+            <p>Una canción que evoca recuerdos con mi abuelo. Cada escucha es un viaje al pasado.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="artist">
+        <figure>
+          <img src="wos.jpg" alt="Wos cantando en vivo con la bandera argentina sobre el hombro" loading="lazy" />
+        </figure>
+        <div class="artist-text">
+          <h3>Wos</h3>
+          <p>
+            Wos un artista que admiro por la manera en la que logra transformar emociones y
+            pensamientos en música. Sus canciones tienen una intensidad especial, y muchas veces
+            siento que sus letras pueden expresar cosas que yo no sé cómo decir.
+          </p>
+          <p>
+            <em>“MELANCOLÍA”</em> una canción que tiene un significado porque conecta con ese
+            lado más sensible y reflexivo que todos tenemos. Me gusta porque transmite una
+            sensación de nostalgia, de pensar demasiado en lo que pasó, en lo que pudo haber
+            sido y en todo aquello que llevamos dentro. Escucharla me genera un detener en el
+            mundo por unos minutos y dejar que todas esas emociones salgan. No es simplemente una
+            canción que me gusta: es una de esas canciones que puedo sentir, incluso cuando
+            no tengo palabras para explicar exactamente lo que me pasa.
+          </p>
+          <div class="music-card">
+            <h3>Wos · MELANCOLÍA</h3>
+            <p>Una canción que invita a detenerse, sentir nostalgia y dejar salir las emociones guardadas.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="artist">
+        <figure>
+          <img src="billie.jpg" alt="Billie Eilish cantando en el escenario entre humo naranja y luces" loading="lazy" />
+        </figure>
+        <div class="artist-text">
+          <h3>Billie Eilish</h3>
+          <p>
+            Billie Eilish una artista que me encanta especialmente por la forma que convierte
+            emociones profundas en música. Sus canciones tienen una atmósfera única y muchas
+            veces logran transmitir sentimientos que pueden ser difíciles de explicar con
+            palabras.
+          </p>
+          <p>
+            Por lo que su música representa emociones, pensamientos y momentos que a veces
+            guardo dentro de mí. Me gusta sus canciones ya que pueden pasar de ser tranquilas y
+            delicadas a intensas y oscuras, reflejando diferentes partes de lo que uno puede
+            sentir. Escuchar a Billie Eilish es, de alguna manera, entrar en un espacio propio
+            donde puedo sentir, pensar y simplemente dejarme llevar por la música. No importa
+            cuál sea la canción: hay algo en su voz y en la forma en que expresa sus emociones
+            que consigue llegarme de una manera muy personal.
+          </p>
+          <div class="music-card">
+            <h3>Billie Eilish · canciones favoritas</h3>
+            <p>Su voz y sus letras crean un espacio propio donde puedo sentir, pensar y dejarme llevar.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 — Paisajes &amp; Canciones. Página personal sobre fotografía y música.</p>
+  </footer>
+
+  <script>
+    /* ===== Votación compartida (todos ven los mismos resultados) =====
+       Los votos se guardan en un contador público gratuito (Abacus).
+       Cambiá NAMESPACE por un nombre único tuyo si querés empezar de cero. */
+    const NAMESPACE = "kaidaaa-paisajes-y-canciones";
+    const API = "https://abacus.jasoncameron.dev";
+    const VOTED_KEY = "votacion-gustos-elegido";
+
+    const OPTIONS = [
+      { id: "musica", label: "La música" },
+      { id: "fotografia", label: "La fotografía" },
+      { id: "otros", label: "Otros" },
+    ];
+
+    let votes = { musica: 0, fotografia: 0, otros: 0 };
+    let choice = localStorage.getItem(VOTED_KEY);
+    let sending = false;
+
+    const list = document.getElementById("poll-options");
+    const status = document.getElementById("poll-status");
+
+    async function getCount(id) {
+      const res = await fetch(`${API}/get/${NAMESPACE}/${id}`);
+      if (res.status === 404) return 0; // todavía nadie votó esa opción
+      if (!res.ok) throw new Error("Error al leer los votos");
+      const data = await res.json();
+      return data.value || 0;
+    }
+
+    async function hitCount(id) {
+      const res = await fetch(`${API}/hit/${NAMESPACE}/${id}`);
+      if (!res.ok) throw new Error("Error al enviar el voto");
+      const data = await res.json();
+      return data.value || 0;
+    }
+
+    async function loadVotes() {
+      const values = await Promise.all(OPTIONS.map((o) => getCount(o.id)));
+      OPTIONS.forEach((o, i) => (votes[o.id] = values[i]));
+    }
+
+    function total() {
+      return OPTIONS.reduce((a, o) => a + (votes[o.id] || 0), 0);
+    }
+
+    function render() {
+      const t = total();
+      list.innerHTML = "";
+
+      OPTIONS.forEach((opt) => {
+        const count = votes[opt.id] || 0;
+        const pct = t > 0 ? Math.round((count / t) * 100) : 0;
+        const active = choice === opt.id;
+
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.className = "poll-btn" + (active ? " active" : "");
+        btn.type = "button";
+        btn.setAttribute("aria-pressed", active);
+        btn.disabled = !!choice;
+        btn.innerHTML = `
+          <span class="poll-row">
+            <span>${opt.label}</span>
+            <span class="poll-count">${count} ${count === 1 ? "voto" : "votos"} · ${pct}%</span>
+          </span>
+          <span class="poll-bar"><span class="poll-fill" style="width: ${pct}%"></span></span>
+        `;
+        btn.addEventListener("click", () => vote(opt.id));
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+
+      if (choice) {
+        const label = OPTIONS.find((o) => o.id === choice)?.label;
+        status.textContent = `Tu voto: ${label}. Total de votos de todos los visitantes: ${t}.`;
+      } else {
+        status.textContent = `Todavía no votaste. Votos totales: ${t}.`;
+      }
+    }
+
+    async function vote(id) {
+      if (choice || sending) return;
+      sending = true;
+      status.textContent = "Enviando tu voto...";
+      try {
+        votes[id] = await hitCount(id);
+        choice = id;
+        localStorage.setItem(VOTED_KEY, id);
+        render();
+      } catch (e) {
+        console.error(e);
+        status.textContent = "No se pudo enviar el voto. Revisá tu conexión e intentá de nuevo.";
+      } finally {
+        sending = false;
+      }
+    }
+
+    (async function init() {
+      render();
+      status.textContent = "Cargando resultados...";
+      try {
+        await loadVotes();
+      } catch (e) {
+        console.error(e);
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>
